@@ -2,13 +2,13 @@
 
 // When this method is used to set content, it overwrites the content of ALL matched elements.
 
-This method uses the browser's innerHTML property...
+//This method uses the browser's innerHTML property... 
 
 
 $(document).ready(function(){  ///it does not wait for your images and all shit...  you would see this printing out..
 	//document.getElementById
-	var boo = $('div.demo-container').html();  //
-	console.log(boo); //<div class="demo-box">Demonstration Box</div>
+	$('div.demo-container').html('<p>all new content! <em>you Bet</em></p>');  //
+	
 
 });
 
