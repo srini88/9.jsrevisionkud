@@ -1,31 +1,20 @@
 $(document).ready(function(){  
-	$('div').prepend("HI");
-
+	$('#boo').wrap('<p>HEY</p>');
 });
 
-// HI
-// HI Nigga
-// HI Nigga2
-// HI nigga3
-// HI Nigga4
+///.wrap elements...
+
+// <div class ="state">Arizona </div>
+
+// $('.state').wrap('<div class="US_State" />')
 
 
-//find all the officePhone class and append this shit..
-
-//$('.officePhone').append('<span>(office)</span');
-
-//would result in office being added into each .officePhone class...
+// results in 
 
 
-// prepending adds children at the begining of the matching element: 
-
-///four key methodshadle inserting nodes into elements 
+// <div class ="US_State">
 
 
-// .append()
-// .appendTo()
-// .prepend()
-// .prependTo()
-
-// to remove niodes from an element use .remove()
+// <div class ="state">Arizona </div>
+// </div>
 
