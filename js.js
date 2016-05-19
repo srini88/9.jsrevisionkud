@@ -6,13 +6,11 @@ $(document).ready(function(){
 	//above raw dom way
 	$('div').attr({
 
-		title :'title3',
-		style: 'font-size:14pt;background-color:yellow;'
+		title :'title3'
+	}).css('font-size', '20pt')  //we are doing the chaining..
 
 
-	});  //jQuwery way... works the same way..
+	;  //jQuwery way... works the same way..
 });
 
-//directly call css or use attr  and apply stuyel shit
-
-//above works the same way..
+//you can do css or do style inside attr ...
