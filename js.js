@@ -1,9 +1,11 @@
 $(document).ready(function(){  
 
-
- 	
-
- 	$('span:first-child').css("backgroundColor", "red")
+	console.log($('div div'));
+ 	$('div div').css({
+ 		'height' : '50px',
+ 		'width' :'100px',
+ 		'backgroundColor' :'#FF0000'
+ 	}).css("border","50px")
 
 
  
@@ -16,3 +18,5 @@ $(document).ready(function(){
 
 
 // $('span:first-child')
+
+
