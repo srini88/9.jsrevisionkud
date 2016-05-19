@@ -5,10 +5,12 @@
 
 
 $(document).ready(function(){  
-	$('div.demo-container').html(function(){
-		var emphasis = "<em>" + $( "div" ).length + " paragraphs!</em>";
-  	return "<p>All new content for " + emphasis + "</p>";
-	});  //
+	$('div').html(function(){
+		
+
+		return "<b>Wow</b> such excitement..";
+	}); 
+	console.log($('div').html()); // returning first matched element..<b>Wow</b> such excitement..
 	
 });
 
