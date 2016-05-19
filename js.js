@@ -2,16 +2,21 @@ $(document).ready(function(){
 	
 
 	$('div').each(function(index){
-		console.log(index+" " + $(this).html());  //getting same results with $(this).text
+		console.log(index+" " + $(this).html());  
 	})
-//[div, context: div]
-	// Iterate over a jQuery object, executing a function for each matched element.
 
- // Function( Integer index, Element element )
 
 });
-// 0 Hello
-// 1 Hello
-// 2 Hello
 
-// jQuery.html() treats the string as HTML, jQuery.text() treats the content as text.
+fastest selector $("#myID")
+
+///$('div, span') - slects both div and span 
+
+$('.BlueDiv, .RedDiv')
+
+$('a.myClass') - selects only anchor tags with class="myClass"
+
+$('div.bluediv') - only focus on div with blueDiv class name...
+
+selecting nodes by attribute value...
+
