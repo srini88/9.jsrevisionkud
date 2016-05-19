@@ -1,16 +1,31 @@
 $(document).ready(function(){  
+	$('div').append("HI");
 
-	// $('div').each(function(index){
-	// 	this.title = "My index="+index;   
-	// })
-	//above raw dom way
-	$('div').attr({
-
-		title :'title3'
-	}).css('font-size', '20pt')  //we are doing the chaining..
-
-
-	;  //jQuwery way... works the same way..
 });
 
-//you can do css or do style inside attr ...
+//Nigga HI
+// Nigga2 HI
+// nigga3 HI
+// Nigga4 HI
+// HI
+
+
+//find all the officePhone class and append this shit..
+
+//$('.officePhone').append('<span>(office)</span');
+
+//would result in office being added into each .officePhone class...
+
+
+// prepending adds children at the begining of the matching element: 
+
+///four key methodshadle inserting nodes into elements 
+
+
+// .append()
+// .appendTo()
+// .prepend()
+// .prependTo()
+
+// to remove niodes from an element use .remove()
+
