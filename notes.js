@@ -1,2 +1,9 @@
 doing advanced techniques in JS and jQuery...
 
+HTML5 canvas draw function...
+create a square logo...
+silver square with a black logo
+
+
+jquery dan Wahlin... great course.....Jquery fundamentals..
+
