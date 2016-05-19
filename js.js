@@ -23,3 +23,13 @@ $(document).ready(function(){
 
 
 // $('input[type="text"]') --
+
+$(':input')  select all input tags --all input, textarea, select and button elements where as $input just selects elements with an input tag..
+
+$('input') - selects only those elemtns that have input tag.. wont select drop down list and text area..., button, image, radio -- 
+
+
+$(:input)  > $(input)
+
+$(':input[type="text"]')  --- big collection and then filter to 2..
+$(input[type="text"]) -  filter to 2 directly..
