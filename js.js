@@ -1,13 +1,13 @@
 $(document).ready(function(){  
-	$('div').append("HI");
+	$('div').prepend("HI");
 
 });
 
-//Nigga HI
-// Nigga2 HI
-// nigga3 HI
-// Nigga4 HI
 // HI
+// HI Nigga
+// HI Nigga2
+// HI nigga3
+// HI Nigga4
 
 
 //find all the officePhone class and append this shit..
