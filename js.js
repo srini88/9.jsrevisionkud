@@ -2,23 +2,21 @@ $(document).ready(function(){
 
 
 
- var inputs = $(':input');  //selects all :input elements
- console.log(inputs);    //[input, input, input, input, textarea, prevObject: n.fn.init[1], context: document, selector: ":input"]
+ var inputs = $(':input');  
 
 
-console.log(typeof inputs);  //object
-console.log(inputs[0]);  //﻿﻿﻿﻿﻿<input type="text" value="nigga">
-var arr = [];
-console.log(typeof arr);  //object
-//console.log(inputs[0].val());  //inputs[0].val is not a function
-//val is jquery function..need a jqerury wrapper to work properly..
-
-//puttng a jquery wrapper around it..
-console.log($(inputs[0]).val())  //nigga
+ inputs.each(function(){
+ 	var element = $(this);   //putting jQuery wrapper..
+ 	//element.val("Hu");  ///changes all values to "HU"
+ 	console.log(element.val());
+ });
 
 
-
+//would print the selected one in the options..
+//if selected is not chosen...it will just default to the first one..
 
 });
+
+//also $('form :input') , $('#form1 :input')
 
 
