@@ -1,35 +1,24 @@
 $(document).ready(function(){  
-	
 
-	console.log($('div[title]'));  //[div, prevObject: n.fn.init[1], context: document, selector: "div[title]"]
 
-	console.log($('div[title]').length);	// 1
 
-	console.log($('div[title="H"]').length);  //1
+ var inputs = $(':input');  //selects all :input elements
+ console.log(inputs);    //[input, input, input, input, textarea, prevObject: n.fn.init[1], context: document, selector: ":input"]
 
-	console.log($('input[type="text"]').length)  //4
 
-	$('input[type="text"]').css("backgroundColor", "yellow")  //changes bg color to yellow on all the input type text fields
+console.log(typeof inputs);  //object
+console.log(inputs[0]);  //﻿﻿﻿﻿﻿<input type="text" value="nigga">
+var arr = [];
+console.log(typeof arr);  //object
+//console.log(inputs[0].val());  //inputs[0].val is not a function
+//val is jquery function..need a jqerury wrapper to work properly..
+
+//puttng a jquery wrapper around it..
+console.log($(inputs[0]).val())  //nigga
+
+
 
 
 });
 
 
-// $('a[title]')  -- find all anchor tags that have a tilte attribute...
-
-
-// $('a[title="ProgrammingInfo"]') = select all anchor elements that hve a programming info title attribute value....
-
-
-
-// $('input[type="text"]') --
-
-$(':input')  select all input tags --all input, textarea, select and button elements where as $input just selects elements with an input tag..
-
-$('input') - selects only those elemtns that have input tag.. wont select drop down list and text area..., button, image, radio -- 
-
-
-$(:input)  > $(input)
-
-$(':input[type="text"]')  --- big collection and then filter to 2..
-$(input[type="text"]) -  filter to 2 directly..
