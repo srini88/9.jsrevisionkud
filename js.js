@@ -1,22 +1,29 @@
 $(document).ready(function(){  
 
-	console.log($('div div'));
- 	$('div div').css({
- 		'height' : '50px',
- 		'width' :'100px',
- 		'backgroundColor' :'#FF0000'
- 	}).css("border","50px")
+	console.log($('#parent').css("textDecoration","underline"));  //everything within the div underlines...
+
+
+	console.log($('#parent p').css("textDecoration","underline"));   //want to underline just p tag
+
+
+	$('div div').each(function(index){
+		if (index ===1){
+			console.log($(this).css("textDecoration", "line-through"));
+		}
+	});
 
 
  
 });
 
 
-// Selecting the first child 
-
-// $('element:first-child') selects the first child of every element group..
+// Was given a parent div and 3 child divs inside. Asked to add CSS to each giving some height and width to the child divs and border of a certain thickness to all. Asked to add another child div inside the second child. Was asked to give absolute position to this div with some bottom and left positioning and asked to draw the layout.  
 
 
-// $('span:first-child')
+// [attribute^="value"] will select all elements with an attribute that begins with stated value..
 
 
+// [attribute$="value"] ends with value..
+
+
+// [attribute*="value"]  contains the word value
