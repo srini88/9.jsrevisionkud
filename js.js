@@ -10,7 +10,9 @@ $(document).ready(function(){
 
 		return "<b>Wow</b> such excitement..";
 	}); 
-	console.log($('div').html()); // returning first matched element..<b>Wow</b> such excitement..
+	//console.log($('div b')); //returns a collection..
+
+	$('div b').append(document.createTextNode("!!!")).css("color", "red");
 	
 });
 
