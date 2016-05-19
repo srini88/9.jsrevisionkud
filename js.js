@@ -1,22 +1,25 @@
 $(document).ready(function(){  
 	
 
-	$('div').each(function(index){
-		console.log(index+" " + $(this).html());  
-	})
+	console.log($('div[title]'));  //[div, prevObject: n.fn.init[1], context: document, selector: "div[title]"]
+
+	console.log($('div[title]').length);	// 1
+
+	console.log($('div[title="H"]').length);  //1
+
+	console.log($('input[type="text"]').length)  //4
+
+	$('input[type="text"]').css("backgroundColor", "yellow")  //changes bg color to yellow on all the input type text fields
 
 
 });
 
-fastest selector $("#myID")
 
-///$('div, span') - slects both div and span 
+// $('a[title]')  -- find all anchor tags that have a tilte attribute...
 
-$('.BlueDiv, .RedDiv')
 
-$('a.myClass') - selects only anchor tags with class="myClass"
+// $('a[title="ProgrammingInfo"]') = select all anchor elements that hve a programming info title attribute value....
 
-$('div.bluediv') - only focus on div with blueDiv class name...
 
-selecting nodes by attribute value...
 
+// $('input[type="text"]') --
