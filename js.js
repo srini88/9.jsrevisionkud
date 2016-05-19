@@ -1,29 +1,20 @@
 $(document).ready(function(){  
 
-	console.log($('#parent').css("textDecoration","underline"));  //everything within the div underlines...
+	//$('tr').css("backgroundColor", "green");  //all rows greeen
+ 	//$('tr:even').css("backgroundColor", "green");  //all even ones..
+	$('tr:last-child').css("backgroundColor", "green");   //last one
 
+	console.log($('div:contains("basha")').html());  //manik basha.s.dfsd
 
-	console.log($('#parent p').css("textDecoration","underline"));   //want to underline just p tag
+	//if manik basha is in another div .html would print <div>manik basha.s.dfsd</div>
 
-
-	$('div div').each(function(index){
-		if (index ===1){
-			console.log($(this).css("textDecoration", "line-through"));
-		}
-	});
-
-
- 
 });
 
 
-// Was given a parent div and 3 child divs inside. Asked to add CSS to each giving some height and width to the child divs and border of a certain thickness to all. Asked to add another child div inside the second child. Was asked to give absolute position to this div with some bottom and left positioning and asked to draw the layout.  
+//$('#datatable tr:odd')   ...on a particular table...very specific selector...
+
+// $('div[title$="Title"]') //ends with Title..
+// ^ starts with 
+// * contains ...
 
 
-// [attribute^="value"] will select all elements with an attribute that begins with stated value..
-
-
-// [attribute$="value"] ends with value..
-
-
-// [attribute*="value"]  contains the word value
