@@ -29,9 +29,31 @@ $('.btn').on('click', function(e){
 	$('div').css('left', 10+currentLeft);
 })
 $html.on('keydown', function(e){
-	console.log(e);
-	console.log("keydown")
+
+	console.log(e.keyCode);
+var currentLeft = $('div').offset().left;
+var currentTop = $('div').offset().top;
+	if (e.keyCode == 39){
+		$('div').css('left', 10+currentLeft);
+	}
+	if (e.keyCode == 37){
+		$('div').css('left', currentLeft-10);
+	}
+		if (e.keyCode == 38){
+		$('div').css('top', currentTop-10);
+	}
+			if (e.keyCode == 40){
+		$('div').css('top', currentTop+10);
+	}
+
+
+
 })
+
+//you will get keycode..
+//e.keycode....
+
+//right arrow is 39
 
 
 </script>
