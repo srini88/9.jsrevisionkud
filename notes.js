@@ -88,6 +88,46 @@ jqeury =-- click , blur, focus, dblclick, mousedown , mouseup, mouseover, keydow
 
 
 
+Selecting with jQuery
+
+With jQuery, selecting things is the same as plain Javascript: it uses CSS selectors.
+
+If you select something using plain JS, you can’t use jQuery functions without selecting it with jQuery. If you select something with jQuery, you can’t use plain JS functions.
+
+$('#thing') — will select an element with the ID of thing
+$('div') — select all the div elements on the page
+$('.thang') — will select all the elements with the class of thang
+
+
+If you want to apply something to all the elements you selected in jQuery, there are two ways to do it:
+
+Directly using the collection
+Using a loop
+
+var $thePTags = $('p');
+
+// Directly: this will apply the same CSS to all the elements
+$thePTags.css('color', 'red');
+
+// A loop
+$thePTags.each(function (i) {
+  // $(this) refers the current thing inside this loop
+  $(this).css('color', 'red');
+});
+
+.offset
+Get the current coordinates of the first element, or set the coordinates of every element, in the set of matched elements, relative to the document.
+The .offset() method allows us to retrieve the current position of an element relative to the document. Contrast this with .position(), which retrieves the current position relative to the offset parent.
+
+.offset() returns an object containing the properties top and left.
+
+-----------------event delegation------------
+
+
+
+
+
+
 
 
 

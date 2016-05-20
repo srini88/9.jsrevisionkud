@@ -1,51 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<title>JS revision KUD</title>
-	<style type="text/css">
+  <meta charset="utf-8">
+  <title>offset demo</title>
+  <style>
+  p {
+    margin-left: 20px;
+  }
 
-	.Highlight {
-		background-color: Yellow;
-	}
-	div{
-		height: 150px;
-		width: 150px;
-		background-color: red;
-		padding-top: 10px;
-		border:2px solid blue;
-
-	}
-
-	</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-<script src="js.js"></script>
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
+ 
+<p>Hello</p>
+<p>2nd Paragraph</p>
+ 
+<script>
+var p = $( "p:last" );
+console.log(p.text());  //2nd Paragraph
+
+p.html("left  " + p.offset().left + " top "+p.offset().top);  //left 27.99715805053711 top 51.07954406738281
 
 
-
-<div id="myDiv">
-
-</div>
-
-
-
-
-
-
-
-<!-- 
-
-
-As you know, the onBlur event fires for an element if that element had the focus, but loses it. 
-<!onBlur event is raised when a select, text, or textarea form item is acted upon and then moved off of by the user. In other words, when the item losses focus the onBlur event is raised.
-
-onChange event is raised when the text in a select, text, or textarea form item is altered by the user. 
-
-onClick event is raised when the user clicks the user clicks on an object e.g. button, image, hyper link etc.
-
-onFocus event is raised when a select, text or textarea items is selected on an HTML form.
- -->
-
+// var offset = p.offset();
+// p.html( "left: " + offset.left + ", top: " + offset.top );
+</script>
+ 
 </body>
 </html>
