@@ -5,7 +5,7 @@
   <title>offset demo</title>
   <style>
 
-div{
+.diva{
 	height  :120px;
 	width :120px;
 	background-color: red;
@@ -20,9 +20,16 @@ div{
 </head>
 <body>
  
-<button class="btn">Do something!</button>
+<form>
+  <input id="target" type="text" value="Hello there">
+</form>
+<div id="other">
+  Trigger the handler
+</div>
 
-<div class="box"></div> 
+<!-- <button class="btn">Do something!</button>
+
+<div class="box"></div>  -->
 <script>
 
 $('.btn').on('click', function(e){
@@ -30,6 +37,11 @@ $('.btn').on('click', function(e){
 	console.log(currentLeft); //197.96875
 	$('div').css('left', 10+currentLeft);
 })
+$( "#target" ).keydown(function() {
+  alert( "Handler for .keydown() called." );
+});
+
+//when you pree any key inside the text box, the handler will be triggered///key down any key..not only the down arrow key...any key
 
 </script>
  
