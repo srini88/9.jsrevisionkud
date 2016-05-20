@@ -2,16 +2,15 @@ $(document).ready(function(){
 
 
 
-	$("div").css({
-		'color' :'#ccc',
-		'font-weight':'bold'
-	}  )//.text("chaged color");              //tag selector all divs
-
-
+var selc = $("div");
+console.log(selc);  //gives 5     $("div div") gives 4
 
 });
 
-//do it the above way,,, also chain one property at a time..
 
+///modifying class
 
-//by adding .text it removes what is there before and appends chaged color
+// .addClass()
+// .hasClass()  //checks  true or false..
+// .removeClass()  //remove all class 
+// .toggleClass()  //is there or isn't there...
