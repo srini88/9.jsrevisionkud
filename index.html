@@ -10,6 +10,9 @@ div{
 	width :120px;
 	background-color: red;
 }
+.green{
+	background-color: green;
+}
 
   </style>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -22,10 +25,8 @@ div{
 <script>
 
 $('.btn').on('click', function(e){
-	// console.log("button clicked");
-	// console.log(e);
-	$('.box').css('backgroundColor','blue')
 
+	$('div').toggleClass('green');
 })
 
 </script>
