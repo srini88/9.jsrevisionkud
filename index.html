@@ -17,7 +17,7 @@
 
 <div id="selectedPerson"></div>
 
-<table>
+<table id="customers">
 	
 	<tr>
 		<td>John</td>	
@@ -41,12 +41,14 @@
 
 <script>
 
-//we are attaching event handler to every single tr or td in the table..
-//eat up in the memeroy..
+//we added id of customers to the table...which is the parent..
+/////we can come back in and find that id... 
+///find id and on that click .... remember have to add second para..
+//on a click for what...'td' which is a descendent...
 $(document).ready(function(){
-	$('td').on('click mouseenter mouseleave', function(){
+	$('#customers').on('click', 'td',function(){
 		console.log($(this).text())  //or html()
-		console.log("tr is clicked")
+
 	})
 
 })
