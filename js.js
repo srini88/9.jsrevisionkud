@@ -2,15 +2,14 @@ $(document).ready(function(){
 
 
 
-var selc = $("div");
-console.log(selc);  //gives 5     $("div div") gives 4
+var selc = $("div div");
+
+	selc.each(function(index,element){
+		$(this).addClass("class" + index);
+
+
+	})
 
 });
 
-
-///modifying class
-
-// .addClass()
-// .hasClass()  //checks  true or false..
-// .removeClass()  //remove all class 
-// .toggleClass()  //is there or isn't there...
+//output will be class0, class1, class2...etc for each div..
