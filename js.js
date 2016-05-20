@@ -10,15 +10,13 @@ var selc = $("div div");
 
 	})
 
-	if ((selc.hasClass('class1'))){
+	selc.each(function(index, element){
+		if ($(this).hasClass('class3')){
+			$(this).addClass('newshit')
+		}
+	})
 
-		console.log(selc.addClass('class1'));   //adding extra class 
-		///op will be class0 class1, 
-		////if class1 is already there it wont add again..
-	}
-
-
-
+	////it will add newshit class to the class that contains class3..
 
 });
 
