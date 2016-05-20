@@ -9,6 +9,7 @@ div{
 	height  :120px;
 	width :120px;
 	background-color: red;
+	position:absolute; /* //so that we can move it around the screen*/
 }
 .green{
 	background-color: green;
@@ -26,10 +27,7 @@ div{
 
 $('.btn').on('click', function(e){
 
-	$('div').css({
-		'backgroundColor' :'green',
-		'borderRadius' :'20px'
-	});
+	$('div').css('top', '10px');
 })
 
 </script>
