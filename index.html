@@ -14,17 +14,7 @@
 </head>
 <body>
 
-<input class ="fn"></input>
-<textarea class="fn">
-	
-</textarea>
-<select class="fn">
-	<option val="CA">CA</option>
-	<option val="AZ" selected>AZ</option>
-</select>
-
-<input id ="Subbtn" type="button" value="Submit"></input>
-<div id="divOutput"></div>
+<div id="divOutput">MY text mouseenter and mouseover</div>
 <script>
 
 
@@ -33,15 +23,13 @@ $(document).ready(function(){
 	WireEvents();
 })
 	function WireEvents(){
-		$('#Subbtn').click(function(){
-			var val = $('#fn').val();
-			console.log(val)
-			$('#divOutput').text(val);
+
+		$('#divOutput').mouseenter(function(event) {
+			$(this).toggleClass('green');
 		})
-		$('.fn').change(function(){
-			$(this).addClass('green')
-			console.log($(this).val());
-		})
+		.mouseleave(function(event) {
+			$(this).toggleClass('green');
+		});
 	}
 
 
