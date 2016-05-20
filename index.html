@@ -26,8 +26,9 @@ div{
 <script>
 
 $('.btn').on('click', function(e){
-
-	$('div').css('left', '10px');
+	var currentLeft = $('div').offset().left;
+	console.log(currentLeft); //197.96875
+	$('div').css('left', 10+currentLeft);
 })
 
 </script>
