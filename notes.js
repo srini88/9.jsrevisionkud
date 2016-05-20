@@ -53,3 +53,43 @@ when it is ready ,,call the callback --- inline anonymous function..
 use $(document).ready(function(){
 
 });
+
+
+////handling events...
+easy and robust API -- handle different types of events in different ways..
+
+on and off type of functions...
+events can bubble up...
+
+
+live delegate and on -- live and delegate are old... new api is on and off...
+
+
+different tehcniques to do hover events.... 
+
+click event --- IE 8 and earlier... 
+
+myButton.addEventListener('click', function(){})
+
+myButton.attachEvent ('onclick', function(){})  ...event name of the event is different......in IE8..
+
+jQuery wraps all this pieces of functionality..... 
+events notify a program that a user performed some type of action...
+
+
+jQuery provides a cross-browser event model that works in IE, chrome, Opera a..
+
+
+
+
+jqeury =-- click , blur, focus, dblclick, mousedown , mouseup, mouseover, keydown , keypress..
+
+
+
+
+
+
+
+
+
+

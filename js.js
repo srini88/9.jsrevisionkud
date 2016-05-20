@@ -1,25 +1,25 @@
 $(document).ready(function(){  
 
 
+	$("#myDiv").click(function(event) {  ///2nd parameter wont be the element passed in, no second paramenter
+		console.log(event);
+		console.log($(this));
+		console.log(this);  //raw div
+		console.log($("#myDiv"))  //this will have extra attribute selector..
 
-var selc = $("div div");
-	selc.toggleClass('Highlight')   //will add to the third div..
-	//also can use first last 
-	
+		console.log(typeof event);  //object
+		console.log(typeof $(this));// object
+		console.log(event === $(this))  //false
+		console.log(event === this)  //false
+		console.log(this === $("#myDiv"))
+		$(this).toggleClass('Highlight');
+	});
+
+
+
+
+
 
 
 
 });
-
-function myFocus(e){
-	console.log(e);
-	$(e).toggleClass('Highlight');
-}
-
-
-
-///.toggleClass() alternates adding or removing a class based on the current presence or absence of the class...
-
-
-
-// As you know, the onBlur event fires for an element if that element had the focus, but loses it.
