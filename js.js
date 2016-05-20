@@ -14,12 +14,4 @@ $(document).ready(function(){
 		console.log(this === $("#myDiv"))
 		$(this).toggleClass('Highlight');
 	});
-
-
-
-
-
-
-
-
 });

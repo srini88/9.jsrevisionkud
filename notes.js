@@ -121,6 +121,9 @@ The .offset() method allows us to retrieve the current position of an element re
 
 .offset() returns an object containing the properties top and left.
 
+
+hooking up events in html is shit... dont put onclick and all that shit in html..instead do it in JS... 
+
 -----------------event delegation------------
 
 

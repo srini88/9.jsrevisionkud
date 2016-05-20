@@ -18,42 +18,25 @@ div{
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
- <button class="btn">Do something!</button>
-<div class="box"></div> 
+
+
+<input id ="Subbtn" type="button" value="Submit"></input>
+
 <script>
-var $html = $('html');
 
-$('.btn').on('click', function(e){
-	var currentLeft = $('div').offset().left;
-	console.log(currentLeft); //197.96875
-	$('div').css('left', 10+currentLeft);
+
+$(document).ready(function(){
+
+	WireEvents();
 })
-$html.on('keydown', function(e){
+	function WireEvents(){
 
-	console.log(e.keyCode);
-var currentLeft = $('div').offset().left;
-var currentTop = $('div').offset().top;
-	if (e.keyCode == 39){
-		$('div').css('left', 10+currentLeft);
-	}
-	if (e.keyCode == 37){
-		$('div').css('left', currentLeft-10);
-	}
-		if (e.keyCode == 38){
-		$('div').css('top', currentTop-10);
-	}
-			if (e.keyCode == 40){
-		$('div').css('top', currentTop+10);
+		$('#Subbtn').click(function(e){
+			console.log(e);
+			console.log("button clicked")
+		})
 	}
 
-
-
-})
-
-//you will get keycode..
-//e.keycode....
-
-//right arrow is 39
 
 
 </script>
