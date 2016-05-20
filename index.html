@@ -23,23 +23,19 @@ $(document).ready(function(){
 	WireEvents();
 })
 	function WireEvents(){
+		//same result you get with bind also...
+		$('#divOutput').on('mouseenter mouseleave mouseup', function(e){
 
-		$('#divOutput').mouseenter(function(event) {
-			Toggle(this);
-			$(this).css('cursor','pointer')  //hand
+			$(this).toggleClass('green');
+			$(this).css('cursor', 'pointer');
+			if (e.type =='mouseup'){
+				$(this).text("X: "+ e.pageX +"Y: " + e.pageY);
+			}
+
 		})
-		.mouseleave(function(event) {
-			Toggle(this);
-		})
-		.mouseup(function(e){
-			console.log(e.target);
-			console.log($(e.target).attr('id'))
-			$(this).text('x:' + e.pageX);
-		})
+	
 	}
-	function Toggle(div){
-		$(div).toggleClass('green');
-	}
+
 
 </script>
  
