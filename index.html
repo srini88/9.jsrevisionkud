@@ -25,11 +25,16 @@ $(document).ready(function(){
 	function WireEvents(){
 
 		$('#divOutput').mouseenter(function(event) {
-			$(this).toggleClass('green');
+			Toggle(this);
+			$(this).css('cursor','pointer')  //hand
 		})
 		.mouseleave(function(event) {
-			$(this).toggleClass('green');
+			Toggle(this);
 		});
+	}
+
+	function Toggle(div){
+		$(div).toggleClass('green');
 	}
 
 
