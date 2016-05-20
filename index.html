@@ -44,7 +44,7 @@
 //we are attaching event handler to every single tr or td in the table..
 //eat up in the memeroy..
 $(document).ready(function(){
-	$('td').on('click', function(){
+	$('td').on('click mouseenter mouseleave', function(){
 		console.log($(this).text())  //or html()
 		console.log("tr is clicked")
 	})
