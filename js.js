@@ -4,12 +4,8 @@ $(document).ready(function(){
 
 var selc = $("div div");
 
-	selc.each(function(index,element){
-		$(this).addClass("class" + index);
-
-
-	})
+	selc.addClass('class')
 
 });
 
-//output will be class0, class1, class2...etc for each div..
+//output will be same class for each div
