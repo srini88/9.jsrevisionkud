@@ -4,27 +4,30 @@
   <meta charset="utf-8">
   <title>offset demo</title>
   <style>
-  p {
-    margin-left: 20px;
-  }
+
+div{
+	height  :120px;
+	width :120px;
+	background-color: red;
+}
 
   </style>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
  
-<p>Hello</p>
-<p>2nd Paragraph</p>
- 
+<button class="btn">Do something!</button>
+
+<div class="box"></div> 
 <script>
-var p = $( "p:last" );
-console.log(p.text());  //2nd Paragraph
 
-p.html("left  " + p.offset().left + " top "+p.offset().top);  //left 27.99715805053711 top 51.07954406738281
+$('.btn').on('click', function(e){
+	// console.log("button clicked");
+	// console.log(e);
+	$('.box').css('backgroundColor','blue')
 
+})
 
-// var offset = p.offset();
-// p.html( "left: " + offset.left + ", top: " + offset.top );
 </script>
  
 </body>
