@@ -16,6 +16,13 @@ var selc = $("div div");
 		}
 	})
 
+	setTimeout(function(){
+		selc.removeClass();
+	}, 2000);    ///removing all classes after two seconds...
+
+	
+
+
 	////it will add newshit class to the class that contains class3..
 
 });
@@ -26,3 +33,13 @@ var selc = $("div div");
 
 
 // based on hasClass is true or flase, you can add more functionality...
+
+
+
+// .removeClass  can remove one or more classes: 
+// $('p').removeClass('classOne classTwo')
+
+
+// remove all class attributes for the matching selector..
+
+// $('p').removeClass(); 
