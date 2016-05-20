@@ -30,7 +30,12 @@ $(document).ready(function(){
 		})
 		.mouseleave(function(event) {
 			Toggle(this);
-		});
+		})
+		.mouseup(function(e){
+			console.log(e.target);
+			console.log($(e.target).attr('id'))
+			$(this).text('x:' + e.pageX);
+		})
 	}
 
 	function Toggle(div){
