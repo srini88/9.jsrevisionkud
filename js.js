@@ -1,32 +1,46 @@
-live() delegate() and on()
+live--- bubble up all the way upto the document..
 
-
-table that has lot of rows...how do you know if the user clicks tr,,,,and mouseenter or leave...or click to every tr...
-
-300 different event handlers...
-
-3 diff options to handle efficieantly...
-
-they are live() delegate() and on() - provide a way to attach evets at higher level...
-
-bubbles up and then parents will handle... 
-
-when a child is clicked , it can actually bubble up...
-
-allow childern to be added to a container without explicitly attaching an event handler to each child...
+using delegate() --- it wont bubble up upto the document.... 
 
 
 
----Using live() old api , removed ...
 
-$('.someClass').live('click', someFunction);  --- event wont happen at the child level...it will bubble up to the document object...The document object handles events by default....
-
-
-anythign that has someClass on it, click event wont be attached to that class...it will bubble up to the document object.....anychild that has someClass is clicked is bubble up...
+A context object ($Divs in the sample below) handles events by default rather than the document object...
 
 
-Stop live event handling using die)_ 
+works even when new objects are sadded into the DOM..
 
-$('.someClass').die()  -- wil detach from the documnet object..
+$('#Divs').delegate('div', 'click', someFunction);
+
+div is any child that is a div..inside one and only #Divs...
+so we are bubbling up until #Divs...
 
 
+
+Stop delegate event handling using undelegate();
+
+//next one is on function..
+
+which should I use which scenario..
+
+//on is a replacement for bind, delegate...
+
+on is on jquery 1.7...
+
+
+//rule them all with .on ...
+
+//on a click on tr..bubbe up until tbody...
+$("MyTable tbody").on("click", "tr", function(event)){
+	alert("row was clicked and bubbled up")
+}
+
+//2nd example with on...using a map...
+
+$("#MyTable tr").on({
+
+	mouseenter:fn, 
+	mouseleave:fn
+
+
+})
