@@ -1,24 +1,32 @@
-// core jquery function called on
-
-// inverse of it is off....
-
-// .on(eventType, handler(eventObject))
+live() delegate() and on()
 
 
-// recommended aproach is on  instead of bind..
+table that has lot of rows...how do you know if the user clicks tr,,,,and mouseenter or leave...or click to every tr...
+
+300 different event handlers...
+
+3 diff options to handle efficieantly...
+
+they are live() delegate() and on() - provide a way to attach evets at higher level...
+
+bubbles up and then parents will handle... 
+
+when a child is clicked , it can actually bubble up...
+
+allow childern to be added to a container without explicitly attaching an event handler to each child...
 
 
-// $('#test').click(handler);
 
-// $('#test').off() - not only click, but any other elemtnt wil also be removed...
+---Using live() old api , removed ...
 
-// $('#test').off('click') //specific events can also be targeted using off()
+$('.someClass').live('click', someFunction);  --- event wont happen at the child level...it will bubble up to the document object...The document object handles events by default....
 
-// before 1.7, use bind and unbind..
 
-// on() allows multiple events to be bound to one or more elements...
-// Event names to bind are separated with a space..
+anythign that has someClass on it, click event wont be attached to that class...it will bubble up to the document object.....anychild that has someClass is clicked is bubble up...
 
-// $("#myDiv").on('mouseenter mouseleave',function(){
-// 	$(this).toggleClass('green')
-// })
+
+Stop live event handling using die)_ 
+
+$('.someClass').die()  -- wil detach from the documnet object..
+
+
