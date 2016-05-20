@@ -5,12 +5,7 @@
   <title>offset demo</title>
   <style>
 
-div{
-	height  :120px;
-	width :120px;
-	background-color: red;
-	position:absolute; /* //so that we can move it around the screen*/ /*if we dont give this absolute the left moving wont work*/
-}
+
 .green{
 	background-color: green;
 }
@@ -19,9 +14,10 @@ div{
 </head>
 <body>
 
+<input id ="fn"></input>
 
 <input id ="Subbtn" type="button" value="Submit"></input>
-
+<div id="divOutput"></div>
 <script>
 
 
@@ -30,14 +26,12 @@ $(document).ready(function(){
 	WireEvents();
 })
 	function WireEvents(){
-
-		$('#Subbtn').click(function(e){
-			console.log(e);
-			console.log("button clicked")
+		$('#Subbtn').click(function(){
+			var val = $('#fn').val();
+			console.log(val)
+			$('#divOutput').text(val);
 		})
 	}
-
-
 
 </script>
  
