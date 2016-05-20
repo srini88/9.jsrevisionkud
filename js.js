@@ -16,12 +16,15 @@ var selc = $("div div");
 		}
 	})
 
-	setTimeout(function(){
+	setInterval(function(){
 		selc.removeClass();
 	}, 2000);    ///removing all classes after two seconds...
 
-	
+	setInterval(function(){
+		selc.addClass("hi");
+	}, 2100); 
 
+	//adding and removing classes periodically...
 
 	////it will add newshit class to the class that contains class3..
 
