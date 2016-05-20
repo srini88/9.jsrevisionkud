@@ -14,28 +14,42 @@
 </head>
 <body>
 
-<div id="divOutput">MY text mouseenter and mouseover</div>
+
+<div id="selectedPerson"></div>
+
+<table>
+	
+	<tr>
+		<td>John</td>	
+		<td>Doe</td>		
+	</tr>
+	<tr>
+		<td>Srini</td>	
+		<td>vas</td>		
+	</tr>
+	<tr>
+		<td>Viswanath</td>	
+		<td>Palghat</td>		
+	</tr>
+
+
+
+</table>
+
+
+
+
 <script>
 
 
 $(document).ready(function(){
+	$('tr').on('click', function(){
+		console.log($(this).text())  //or html()
+		console.log("tr is clicked")
+	})
 
-	WireEvents();
 })
-	function WireEvents(){
-		//same result you get with bind also...
-		$('#divOutput').on('mouseenter mouseleave mouseup', function(e){
 
-			$(this).toggleClass('green');
-			$(this).css('cursor', 'pointer');
-			if (e.type =='mouseup'){
-				$(this).text("X: "+ e.pageX +"Y: " + e.pageY);
-			}
-
-		})
-		$('#divOutput').off('mouseleave');  //nothing will owrk because of off
-	
-	}
 
 
 </script>
