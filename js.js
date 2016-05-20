@@ -1,14 +1,24 @@
-// The change event occurs when the value of an element has been changed (only works on <input>, <textarea> and <select> elements).
+// core jquery function called on
 
-// The change() method triggers the change event, or attaches a function to run when a change event occurs.
+// inverse of it is off....
 
-// Note: For select menus, the change event occurs when an option is selected. For text fields or text areas, the change event occurs when the field loses focus, after the content has been changed.
+// .on(eventType, handler(eventObject))
 
 
-// With a mouseup event, you can click somewhere else on the screen, hold down the click button, and move the pointer to your mouseup element, and then release the mouse pointer.
+// recommended aproach is on  instead of bind..
 
-// A click event requires the mousedown and mouseup event to happen on that element.
 
-// The normal expectation is that a click requires both the mousedown and mouseup event, so I'd recommend the click event.
+// $('#test').click(handler);
 
-// From the possible duplicate, it appears that mouseup and mousedown events can also be caused by mouse buttons other than the left click button. Which is very different from what a generic user would expect.
+// $('#test').off() - not only click, but any other elemtnt wil also be removed...
+
+// $('#test').off('click') //specific events can also be targeted using off()
+
+// before 1.7, use bind and unbind..
+
+// on() allows multiple events to be bound to one or more elements...
+// Event names to bind are separated with a space..
+
+// $("#myDiv").on('mouseenter mouseleave',function(){
+// 	$(this).toggleClass('green')
+// })
