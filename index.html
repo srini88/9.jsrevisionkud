@@ -16,9 +16,10 @@
 
 
 <div id="selectedPerson"></div>
+<input id="btn"type="button" value="BTNADD"></input>
 
 <table id="customers">
-	
+
 	<tr>
 		<td>John</td>	
 		<td>Doe</td>		
@@ -33,7 +34,6 @@
 	</tr>
 
 
-
 </table>
 
 
@@ -46,6 +46,13 @@
 ///find id and on that click .... remember have to add second para..
 //on a click for what...'td' which is a descendent...
 $(document).ready(function(){
+
+	$("#btn").on('click', function(){
+
+		$('#customers').append('<tr><td>pV</td><td>IISS</td></tr>')
+
+	})
+
 	$('#customers').on('click', 'td',function(){
 		console.log($(this).text())  //or html()
 
