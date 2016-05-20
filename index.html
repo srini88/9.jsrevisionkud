@@ -14,7 +14,14 @@
 </head>
 <body>
 
-<input id ="fn"></input>
+<input class ="fn"></input>
+<textarea class="fn">
+	
+</textarea>
+<select class="fn">
+	<option val="CA">CA</option>
+	<option val="AZ" selected>AZ</option>
+</select>
 
 <input id ="Subbtn" type="button" value="Submit"></input>
 <div id="divOutput"></div>
@@ -31,7 +38,13 @@ $(document).ready(function(){
 			console.log(val)
 			$('#divOutput').text(val);
 		})
+		$('.fn').change(function(){
+
+			console.log($(this).val());
+		})
 	}
+
+
 
 </script>
  
