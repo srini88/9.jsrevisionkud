@@ -128,6 +128,132 @@ hooking up events in html is shit... dont put onclick and all that shit in html.
 
 
 
+---------------------Testing and prototyping Javascript .----another course..
+
+
+
+
+unit --small section of code.....verify the functionality...
+
+define a test suite... could be a javascript module...
+
+
+mocha is our unit test framework, expect is an assertion library...calculator.....
+
+<script>
+mocha.ignoreLeaks();
+mocha.run();
+</script>
+
+put expect, put mocha, put our calculator.js, then  put our testing files..code..
+
+
+
+---first define a calculator test suite...
+
+describe("Calculator", function(){
+	var Calculator;
+
+
+	beforeEach(function(){
+		calculator = new Calculator();
+
+	})
+
+	describe("Add", function(){
+		it("should return sum of both operands", function(){
+			expect(calculator.add(1,1).to.be(2))
+		})
+
+	})
+
+})
+
+///howw unit tests should be predictable, pass or fail, self documenting..
+
+//each unit test should have single responsibility,,
+
+///useful error messages...
+
+///unit tests are not integration tests...
+
+////use static data...
+
+///each test should test one feature of one component at a time..
+///integration tests...are very handy...
+//// 
+
+
+//testing tools...
+
+mocha,  js test runner... q unit , jasmine.. 
+
+grunt js automation node, written in JS. automates, concatenation, minification, compiling and transpiling etc..
+
+
+
+hard to test code...
+
+tightly coupled componemt, private parts, singletons, anonymous functins, mised concerns, new operatorrs..
+
+
+
+singleton --- reset singleton and test...
+
+be wary of code that mixes various different concerns...MVC ..
+testing code like this can be very awkward...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
