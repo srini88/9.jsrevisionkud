@@ -561,6 +561,502 @@ Data and output acching... ajax, web forms , performance analysis tools,
 
 
 
+We could also listen to other events, like key presses:
+
+$('html').on('keydown', function (e) {
+  // The number representing the key that was pressed
+  console.log(e.keyCode);
+});
+
+https://learn-the-web.algonquindesign.ca/topics/dom/#event-propagation
+Event propagation
+
+Events follow a propagation in Javascript that includes the capture phase: starting at the <html> element and working down the children until it hits the element; then the bubbling phase that goes backwards up the parents of the element. On each element in the capturing and bubbling phase an event is fired.
+
+$('a').on('click', function (e) {
+  // Will stop the element from doing what it normally does
+  e.preventDefault();
+  // Will stop the event bubbling back up through its parents
+  e.stopImmediatePropagation();
+});
+Using e.preventDefault() on <a> tags will stop the browser from navigating to another page.
+
+
+Event delegation
+
+Sometimes we need to capture events on elements that don’t exist yet, or when there’s lots and lots of elements where binding listeners to all of them would be a performance issue.
+
+For this we can use event delegation.
+
+With this HTML we can bind our event to the <ul> itself, but then only listen for events that fire on the <li> elements.
+
+$('.dinos').on('click', 'li', function () {
+  // Notice the `li` above indicating the delegated element
+});
+
+var btn = document.querySelector('.btn');
+
+// Add a class with `add()`
+btn.classList.add('js-highlight');
+// Remove a class with `remove()`
+btn.classList.remove('js-highlight');
+// Toggle a class on/off with `toggle()`
+btn.classList.toggle('js-highlight');
+// Check to see if the element has a class
+btn.classList.contains('js-highlight');
+
+var $dinos = $('.dinos');
+var $first = $('.first');
+
+// Add after all the current list items
+$dinos.append('<li>Tyrannosaurus</li>');
+// Add before all the current list items
+$dinos.prepend('<li>Iguanodon</li>');
+
+
+Form submission event
+
+The first thing to do when dealing with forms is to capture the form’s submission event and prevent it from doing what it normally does.
+
+<form class="form" method="post" action="capture-data.html">
+
+</form>
+var $form = $('.form');
+
+$form.on('submit', function (e) {
+  // Stop the form from doing what it normally does
+  e.preventDefault();
+});
+
+
+Simple values
+
+For simple inputs like: text, number, color, date, time, url, email, etc. we can just use jQuery’s val() function.
+
+var $email = $('.email');
+
+// Will get the information the user typed into the input field
+$email.val();
+§Checkboxes
+
+For checkboxes we need to confirm whether or not the item is checked, like this:
+
+var $terms = $('.terms');
+
+$terms.is(':checked'); // true or false
+§Radio buttons
+
+For radio buttons we need to grab them by their group name then find the one that has been checked, getting it’s value.
+
+<input type="radio" id="meat" name="diet" value="Meat" checked>
+<input type="radio" id="plant" name="diet" value="Plant">
+$('[name="diet"]:checked').val(); // Meat
+It’s important that radio buttons include the value attribute when working with them.
+
+§Select elements
+
+Select elements work like basic text inputs, but must be set up differently, specifically all the option elements need value attributes.
+
+<select class="dinos">
+  <option value="stego">Stegosaurus</option>
+  <option value="trex" selected>Tyrannosaurus</option>
+  <option value="pterano">Pteranodon</option>
+<
+/select>
+$('.dinos').val(); // trex
+
+
+
+Targeting multiple elements at once
+
+If you’d like to style more than one element the same way you can use a comma to separate the tag names.
+
+/* Target the <h1> tags, the <h2> tags, and the <h3> tags */
+h1, h2, h3 {
+	color: white;
+}
+
+/* Would select every <p> tag inside a <header> tag */
+header p {
+
+}
+
+/* Target every <p> tag, inside a <div> tag, that is inside a <header> tag */
+header div p {
+
+}
+
+
+
+
+
+
+/* Would select every <p> tag inside a <header> tag */
+header p {
+
+}
+
+/* Target every <p> tag, inside a <div> tag, that is inside a <header> tag */
+header div p {
+
+}
+
+
+/* Target every <p> tag, inside a <div> tag, that is inside a <header> tag */
+header div p {
+
+}
+
+The child selector allows a little more precision, looking at the HTML above, say we wanted to get just the p tags outside the div.
+
+Using the > symbol—the child selector—we select only direct children of another tag.
+
+/* Target a <p> tags that is directly inside a <header> tag */
+header > p {
+
+}
+
+This wouldn’t select the other p tag because it’s also inside a div.
+
+If we only want to get the p tag immediately after the h1 we can use the adjacent selector, a + symbol.
+
+/* Target every <p> tag that is immediately beside an <h1> */
+h1 + p {
+
+}
+
+<h2 class="veloci dino">Brachisaurus</h2>
+Now the h2 element has both the veloci class and the dino class. The reason we can’t have a space in our class names is because the space is used to separate multiple classes on the same element.
+
+
+Styling by number
+
+We can also style elements based on their location and number: whether they’re first, last, odd, even, etc.
+
+<ul>
+  <li>Dimetrodon</li>
+  <li>Pterasaur</li>
+  <li>Mammoth</li>
+  <li>Sabertooth Tiger</li>
+  <li>Humans</li>
+</ul>
+We can select different li elements based on their position in the unordered list.
+
+/* Target every <li> tag that is the first element inside a <ul> */
+/* Dimetrodon */
+ul li:first-child {}
+
+/* Target every <li> tag that is the last element inside a <ul> */
+/* Humans */
+ul li:last-child {}
+
+/* Target every even numbered <li> tag inside a <ul> */
+/* Pterasaur, Sabertooth Tiger */
+ul li:nth-child(even) {}
+
+/* Target every odd numbered <li> tag inside a <ul> */
+/* Dimetrodon, Mammoth, Humans */
+ul li:nth-child(odd) {}
+
+/* Target the 4th <li> tag inside a <ul> */
+/* Sabertooth Tiger */
+ul li:nth-child(4) {}
+
+
+
+
+
+There is a CSS selector, really a pseudo-selector, called nth-child. Here is an example of using it:
+
+ul li:nth-child(3n+3) {  
+  color: #ccc;
+}
+
+ nth-child accepts two keywords in that spot: even and odd. Those should be pretty obvious. "Even" selects even numbered elements, like the 2nd, 4th, 6th, etc. "Odd" selects odd numbered elements, like 1st, 3rd, 5th, etc.
+
+As seen in the first example, nth-child also accepts expressions in between those parentheses. The simplest possible expression? Just a number. If you put simply a number in the parentheses, it will match only that number element. For example, here is how to select only the 5th element:
+
+ul li:nth-child(5) {  
+  color: #ccc;
+}
+
+The hexadecimal system has sixteen digits to work with: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f—0 is the smallest and f is the largest.
+
+When there are 3 pairs of numbers, like #ffffff, or #ccff00 we can simplify the hex code.
+
+#ffffff becomes #fff
+#ccff00 becomes #cf0
+#000000 becomes #000
+
+The RGB colour system is similar to hex, just specified a different way. Also, it has the ability to have semi-transparent colours, which the hex system does not.
+
+You can specify the red, green, and blue component of the colour:
+
+h1 {
+	color: rgb(0, 0, 0); /* Black */
+	color: rgb(255, 255, 255); /* White */
+
+
+	RGB semi-transparency
+
+The best thing about the RGB system is that some colours can be specified with semi-transparency by adding another number.
+
+h1 {
+	background-color: rgba(0, 0, 0, 0.5); /* 50% transparent black */
+	background-color: rgba(255, 0, 0, 0.75); /* 75% opaque red */
+}
+
+
+Space — Descendant
+Select an element that’s a descendant of another element.
+ul li {}
+nav a {}
+ul li {}
+
+
+> — Child
+Select an element directly inside another element.
+ul > li {}
+h1 > span {}
+footer > .copyright {}
+
+
++ — Adjacent sibling
+Select an element immediately beside another element.
+h1 + p {}
+hr + p {}
+li + li {}
+
+[] — Attribute
+Select an element by it’s attribute.
+Good for styling links differently if they’re external.
+[data-state="active"] {}
+[href^="http" {}
+[download] {}
+
+:first-child
+Select the element when it’s the first inside its parent.
+p:first-child {}
+ul li:first-child {}
+.person:first-child {}
+
+
+:nth-child()
+Select an element by it’s number.
+Good for zebra-striping table rows.
+li:nth-child(2) {}
+tr:nth-child(odd) {}
+div:nth-child(5n) {}
+
+
+:nth-last-child()
+Select an element by it’s number, counting backwards from the end.
+/* Third from the bottom */
+li:nth-last-child(3) {}
+
+:disabled
+Select an element when its disabled attribute is set.
+button:disabled {}
+
+
+
+:checked
+Select an <input> when its checked attribute is set.
+input:checked {}
+
+
+
+
+
+
+
+:link
+For styling a link that hasn’t been visited.
+a:link {
+  color: #4484c2;
+}
+
+:visited
+For styling a link that has been visited.
+a:visited {
+  color: #ccc;
+}
+
+:hover
+For styling an element when the mouse hovers over it.
+a:hover {
+  color: #00f;
+}
+
+For styling an element for when the keyboard focuses it.
+Only works on <a>, <button>, and form inputs by default.
+button:focus {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+:active
+For styling an element when the mouse button is clicked down on it.
+a:active {
+  color: #f33;
+}
+
+
+Transparency
+The transparent keyword can be used to remove a colour.
+background-color: transparent;
+
+
+Change the typeface of the text.
+Put quotes around typefaces with spaces in their names.
+Always provide a fallback typeface.
+Web safe fonts: Georgia, Arial, Verdana, Times, Comic Sans, Courier.
+font-family: "Open Sans", sans-serif;
+
+
+font-size
+Change the size of the text.
+Prefer rem or em units.
+font-size: 1.5rem;
+
+
+
+
+
+font-weight
+Change the thickness of the text.
+bold, normal, number: 400, 700, etc.
+font-weight: bold;
+
+
+
+font-style
+Change the slanting of the text.
+italic, normal
+font-style: italic;
+
+line-height
+Adjust the space a line takes up, similar to leading.
+Set in a number, a multiplier of the font size.
+line-height: 1.4;
+
+text-align
+Adjust the position of the text within its parent.
+left, right, center, justify
+text-align: center;
+
+text-decoration
+Add or remove lines on the text.
+none, underline, line-through, overline
+text-decoration: none;
+
+
+A box with no content isn’t visible, so content is the first layer
+Outside content is the padding, pushing the edge of the box away from the content
+Outside the padding is the border, the background colour stops here
+Outside the box is the margin, a transparent layer pushing other boxes away
+
+The margin and padding properties are used to put space around your box, either outside the box or inside the box.
+
+margin — adds spacing outside of the box, pushing other boxes away
+padding — adds spacing inside the box, pushing the content away from the border; the background colour is visible within the padding
+
+div {
+	/* Will push other boxes 10 pixels away on all 4 sides */
+	margin: 10px;
+	/* Will push the content away from the box edge on all 4 sides */
+	padding: 12px;
+}
+
+Since boxes have four sides, there are four different margins and paddings that can be changed.
+
+For margin, we have margin-top, margin-right, margin-bottom, margin-left.
+For padding, we have padding-top, padding-right, padding-bottom, padding-left.
+
+div {
+	/* margin: top right bottom left; */
+	margin: 10px 12px 8px 6px;
+}
+
+For the order, we start at the top of the box and make our way clockwise around the box.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
