@@ -389,6 +389,241 @@ sinon js - stubs and mocks fo r JS..no dependencies , works with any nit testing
 stub is used whenever we want to fake functionality..
 
 
+ending here.....00still more jquery one chapter..left...
+
+
+---lloking at web performance....---another pluralsight...
+
+
+HTTP compression........browser can handle compressed content, server can zip it up before it sends it to the client...
+
+content expiration- leverage  customer's browser cache ...
+
+3) content Distribution Network...offload files to your own web server..
+4) Etags-  variation of content expiration...
+
+%) remove unnecessary http headers...
+
+
+
+1) HTTP compression ----- send as little as possible...utilize http compression...
+
+conding header - on the request --- 
+
+with compression enabled....compress the particular file and send the compressed result to the client browser
+
+
+by this we get about 53% less bandwidth...
+
+now use IIS compression...
+
+IIS7 can control when to stop using if CPU usage is too high.....
+only static compression is on by default..
+
+compress on the fly and send it out to the client --- dynamic content compression...
+
+
+all css, js files will be reduced...
+
+IIS compression...built in -- it is free....all major browsers support it...
+
+browser can send the accepting coding header....there is no reason not to use http compression...trade off -- it uses very less percentage of the CPU..
+
+
+Microsoft’s IIS is the second most popular Web server software. It consists of a series of services including File Transfer Protocol (FTP), Hypertext Transfer Protocol (HTTP), Simple Mail Transfer Protocol (SMTP) and others that enable a Windows machine to manage Web sites
+
+
+
+
+For most people reading this, compression is enabled by adding some code to a file called .htaccess on their web host/server. This means going to the file manager (or wherever you go to add or upload files) on your webhost.
+
+browser will say Accept-encoding:gzip ,...then server will do the necessary compression...
+
+
+The browser sends a header telling the server it accepts compressed content (gzip and deflate are two compression schemes): Accept-Encoding: gzip, deflate
+
+The server sends a response if the content is actually compressed: Content-Encoding: gzip
+
+
+
+s exciting as it may appear, HTTP Compression isn’t all fun and games. Here’s what to watch out for:
+
+Older browsers: Yes, some browsers still may have trouble with compressed content (they say they can accept it, but really they can’t). If your site absolutely must work with Netscape 1.0 on Windows 95, you may not want to use HTTP Compression. Apache mod_deflate has some rules to avoid compression for older browsers.
+Already-compressed content: Most images, music and videos are already compressed. Don’t waste time compressing them again. In fact, you probably only need to compress the “big 3” (HTML, CSS and Javascript).
+CPU-load: Compressing content on-the-fly uses CPU time and saves bandwidth. Usually this is a great tradeoff given the speed of compression. There are ways to pre-compress static content and send over the compressed versions. This requires more configuration; even if it’s not possible, compressing output may still be a net win. Using CPU cycles for a faster user experience is well worth it, given the short attention spans on the web.
+
+
+
+
+CONETNET EXPIRATIONS - send data infrequently as possible..
+
+first time visit...download all of those and browser store it in local cahce...
+
+close browser..and come after couple of days... 
+ideally look in browser cache and see if it already there...and serve it...
+
+make sure it is not dirty...
+browser each file found in browser cache -- and go back to origin web server..I have this file..has this file been modified since...
+
+
+if it has , it will send new content..if not ..it will send status code as 304...
+
+	small contenet files it is just as expensive to see if modified as to receive content...
+
+100 additional requests being made.......to the server to do the checking...
+
+
+So leverage my user's browsers cache... 
+
+setup expiration times for conent folders...
+
+
+avoid requests for files that seldomd change -- .js, .css and image files...indicate to the client that these files are look for certain period of time...
+
+images are good for 30 days,,this image put in 20 days ago...
+
+broser will check expiration date...if expires --- browser will request server..and get new page...
+
+if not...browser ill ask and get 304 response...
+
+	Cache control :  max-age setting ...... 365 days...
+
+
+
+2nd way...CDN network...
+
+
+///providing fallback..
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script>if (!window.jQuery) { document.write('<script src="/path/to/your/jquery"><\/script>'); }
+</script>
+
+
+having CDN is 73% faster than my own servers...
+
+ETags= mechanism to support caching for browsers....normal mechanism --- ask if has been modified or not --- is too fragile...
+
+
+Etags -- used for cache  validation... 
+IIS sends the ETag header in response for static files......
+hash:changeNumber...
+
+
+
+remoeve unnecessary HTTP header...there will be etag header...remove that...
+
+X powered by  : ASP.net...remove that shit...
+
+
+HTTP compression is built into IIS and can greatly reduce the amout of data sent to the client...
+
+expirations leverage the user's browsers cache , return visitors get bulk of files locatllly with no load on the  web servers..
+
+CDNs offload work from the web server and are much closer to our users...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
