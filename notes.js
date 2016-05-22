@@ -521,6 +521,51 @@ expirations leverage the user's browsers cache , return visitors get bulk of fil
 
 CDNs offload work from the web server and are much closer to our users...
 
+------------------FRONT END performance....
+
+External CSS and Javascript....
+CSS and JavaScript mification and Consolidation...
+Image Optimization...make them smaller...
+
+CSS sprites --- 
+Favicon.ico caching... set this up to take advantage of cacheing...
+
+almost always put CSS and JS in external files... 
+
+
+Able to use expirations.....leveraging user's browser;s  cache..
+
+Minification and Consolidation..
+
+JSMin, packer...YUI compressor....CSSMin...
+
+take care of this minification at build time...not at the run time..
+
+
+mechanism to reference new combined files..
+
+do image optimzation.. jpegtran -- removes unnecessary metadata, lossless....  visual quality will exactly be the same...
+
+Smush.it png optimization..
+
+
+
+Favicon.ico caching....by defaut, most browsers automatically look for this file in root folder of site..... use for favorites, address bar..
+
+setup to use an image with expirations..
+
+others performance improvements..
+
+Data and output acching... ajax, web forms , performance analysis tools, 
+
+
+
+
+
+
+
+
+
 
 
 
