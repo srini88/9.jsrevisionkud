@@ -981,7 +981,187 @@ div {
 For the order, we start at the top of the box and make our way clockwise around the box.
 
 
+Margin collapsing
 
+Margins have some weird behavior when it comes to their top and bottom values. The bottom value of one box can collapse into the top value of the next—the browser choosing only the highest of the two.
+
+.box-1 {
+	margin-bottom: 15px;
+}
+
+.box-2 {
+	margin-top: 25px;
+}
+The distance between these boxes will not be 40px—but instead the browser will pick the bigger of the two and choose it. So the margin between these boxes is 25px
+
+
+
+Border
+
+Border puts a line around the box, outside the background colour. The line can be solid, dashed, dotted, or an image.
+
+The most basic border has 3 values: width, style, color:
+
+header {
+	/* Apply the same border to all 4 sides of the box */
+	border: 3px solid #000;
+}
+
+
+Border radius
+
+The border-radius property allows you to add rounded corners to your boxes.
+
+a {
+	/* Add 8px rounding to all 4 corners */
+	border-radius: 8px;
+}
+
+
+Box shadow
+
+Box shadow allows you to add a drop shadow to the box itself, where text-shadow adds to the text inside the box.
+
+div {
+	box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
+}
+When specifying box-shadow there’s four values to write out:
+
+horizontal offset — how far to shift the shadow left and right: positive numbers move right, negative move left
+vertical offset — how far to shift the shadow up and down: positive numbers move down, negative move up
+
+
+Browser rendering
+
+When a browser renders your website it reads the HTML from the top to the bottom. The browser tries to place each box beside the previous box, unless something prevents it. Very similar to how words wrap in text editors like MS Word.
+
+The display property
+
+The display property in CSS is one way to change the flow and rendering process of the browser.
+
+There are four major values for display that are used regularly: inline, block, inline-block, none.
+
+p {
+  /* This is the default setting for paragraphs specified by the browser */
+  display: block;
+}
+
+a {
+  display: inline-block;
+}
+
+Inline level elements have the following properties:
+
+They allow other elements to fit beside them on the same line
+They take up only as much width as needed
+width, margin, padding don’t really work
+§Some common inline level elements
+
+span
+a
+strong, em, b, i
+cite
+time, data, ins, del
+
+
+
+Block elements
+
+In the browser’s default CSS there’s a bunch of elements that are specified as block—use your developer tools to see.
+
+Block level elements have the following properties:
+
+They take up their own line, anything that comes after goes onto the next line
+They take up the whole width of its parent element, by default
+width, margin, padding work as expected
+
+
+Hybrid inline-block elements
+
+The inline-block elements are a hybrid of both block and inline, inheriting certain properties from each of them.
+
+Inline-block elements have the following properties:
+
+They fit beside other elements on the same line (from inline)
+They take up only as much space as needed (from inline)
+width, margin, padding work as expected (from block)
+§Some common inline-block level elements
+
+img
+button
+
+
+Hiding elements with display none
+
+The fourth display value commonly used is none, this will completely hide the element from the screen and any other accessibility tools.
+
+h1 {
+  /* This element will not be shown on the screen, nor take up any space */
+  display: none;
+}
+
+
+
+
+
+Making a horizontal navigation bar
+
+Using the display properties to our advantage, we can very easily make a horizontal navigation bar.
+
+Here’s the HTML I would use for navigation:
+
+<nav>
+  <ul>
+    <li><a href="#">Dinosaurs</a></li>
+    <li><a href="#">Meat-eaters</a></li>
+    <li><a href="#">Plant-eaters</a></li>
+  </ul>
+</nav>
+Because of the browser’s default CSS, the li tags stack, one on top of each other, making a vertical list.
+
+We want to make a horizontal list, so we need to change the display property of the li elements.
+
+nav li {
+  display: inline;
+}
+Adding display: inline will allow the browser to render the li elements on the same line, beside each other.
+
+
+Using text-align: center on inline/inline-block elements can affect them in two ways:
+
+If applied to the element itself, the text inside it will be centered
+If applied to the parent element, the inline elements and the text inside them will be centered.
+
+In our navigation above, if we did this:
+
+nav ul {
+  text-align: center;
+}
+Then all the li elements inside would centre themselves within the ul. And all the text inside those li elements would centre itself inside the li tags.
+
+
+Text wrapping with float
+
+The primary purpose of the float property is to allow text to wrap around another element, that element could be an image, a div, or any HTML element.
+
+float: left — move the element to the left, allowing text to wrap on the right side
+float: right — move the element to the right, allowing text to wrap on the left side
+float: none — would turn floating off
+
+.box-1 {
+  float: left;
+}
+
+.box-2 {
+  float: right;
+}
+
+.box-3 {
+  float: right;
+}
+Since the width of .box-1 and .box-2 is less than with width of their parent element the can fit on they same line together.
+
+But since there is no space left on that line for .box-3 it will move down to the next line, underneath the other floated right box.
 
 
 
