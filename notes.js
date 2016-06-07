@@ -1168,80 +1168,167 @@ But since there is no space left on that line for .box-3 it will move down to th
 
 
 
+------------------------------
+https://www.youtube.com/watch?v=8aGhZQkoFbQ
 
 
 
 
 
+JS is a single threaded non-blocking asynchronous concurrent language...
 
 
 
 
+I have a call stack, event loop , a callback queueu , some other apis 
 
 
+hey v8  -  I have a call stack and a heap
 
+v8 is run time inside chrome....its heap -- (memory allocatio happens) and then call stack...
 
 
+v8 does not have setTimeout, xml http requests etc...
 
+That stuff in Web APIS  --- DOM (document,), ajax (xmlHttpRequest) then setTimeout
 
 
+you have event loop and then callback queuee 
 
 
+V8 only has heap and a stack....all other things are separate..
 
+the call stack - one thread - one call stack - one thing at a time...
 
 
+the call stack ---is a ds -- records where in the program we are.. 
+we step in a function -- we put somethin on stack -- we get out - pop off stack..
 
+whiel executing the function is put on the stack...
 
+when we return off a function ...we pop things off the stack..
 
 
+in the stack trace --- google extension tools --- we see --- foo -- then bar -- then baz  -- then anonymous function...which is the main function =- which is the file itself..
 
 
 
+what happens when things are slow ?
 
+things that are slow  and are on the stack  -- is what blocking means...
+it is prblem because we running stuff in browser...
 
 
 
 
+while doing synchronous requests, the brpwser is stuckk-- you cannot click on any other links or do anything...it cannot render...do any other stuff...
 
 
+means we cannot block the stack...So the solution is async callbacks..
 
+---stack---
+|
+|
+|
+|setTimeout (cb, 5000) has the console.log-- 
+|main()
 
 
 
+the setTimeout in the stack comes and instantly disappears.....and then 5 secs later you see console.log("there") in the stack...
 
 
 
+Concurrency and Event loop --- 
+Js run time can only do one thing at a time..the reason we can do concurrently is because... the browser gives us the webAPI's  --- 
 
+these are threads ---  basically -- you can make calls to..
 
 
 
 
+browser = run time JS v8 + webapis + event loop +task queue
 
+so when it sees the setTimeOut in the stack -- it disappears (setTimeout call itself is complete) , so pop of the stack...
 
 
+the webAPIs will have the timer() running now...
 
 
+the webapi will complete after 5 sec...web api can't modify your code..make shit just appear ....
 
+so that's why we have the task queuee...from web apis when they are done..they push callback to the task queue...
 
 
+what is event loop ? they only have one simple job...job is to look at the stack and look at the task queueu..if the stack is empty...it takes first thing off the queue  and pushes onto the stack whihc effectively runs it...
 
 
 
+stack runs the callback eventually......  and we are done...
 
 
+setTimeout of zero --- means we are trying to defer something until the stack is clear...
 
 
 
+button click === it will be on the Web API all the time... 
+only when we click -- it will move it from web api to callback queue and then move it to the stack...
 
 
+setTimeout is not teh guarenteed time to execution ,, but the minimum time to executuin....very imp...
 
 
+callback s -----1
+ ) any fun that other fn calls..2  an async call  that get pushed to the callback queue sometime in the future...
 
 
+foreach method on an array--- it takes a fn --that is callback --which runs it synchronouslly...
 
 
 
 
+
+//synchronous
+
+[1, 2, 3, 4].forEach (function(i){   //running it within the current stack..
+	console.log(i);
+})
+//asynchronous 
+function asyncForEach(array, cb){
+	array.forEach(function(){
+		setTimeout (cb,0);
+	})
+}
+
+
+asyncForEach([1,2,3,4],function(i){
+	console.log(i)
+})
+
+dont block the event loop === means putting shit lot of stuff on the stack..
+
+
+
+Well, arguably its not true that Javascript is single threaded if you see from the under hood working of browser JS to your JS code, there are thread pools. By single threaded what they mean(browser end) is your JS runs into a single threaded event loop. There is one single thread that handles your event loop. Under your JS, the browser code is running multiple threads to capture events and trigger handlers, when they capture any new event, they push it on an event queue and then that event loop, in which your code is running gets triggered and it handles the request e.g. It performs an action which can be to show a DIV, which again triggers the Browser to print it, which in turn runs a thread to do it(from the thread pool).
+
+Lets take an example of your JS algo.
+window.onload 
+     Show Header
+     Send an Ajax Req. for config - > When done, alert a box
+     Do some more page animations
+So when you told the browser to send an ajax request with a provided callback, it saves it in memory and this Network IO call is transferred to a thread in Network Pool Threads, your code next to that line will continue to work. After the Network Call thread has done its job, it will push on the event queue the response. Remember that event loop? Here is when it comes to action, it picks the top entity and then trigger your callback(Context Switching on CPU Level), which in turn could be anything. Now try doing something like this.
+window.onload
+     Show Header
+     Send an Ajax req. for config -> 
+     When done -> Trigger another Ajax 
+         -> for loop 0.100000000
+     Do more animation
+
+Now here, if even your second Ajax completes in due time, its callback will not be triggered until your for loop exits. Its a sort of blocking within the thread, none of the event will be fired and everything will be frozen!
+
+Hope that clears your doubt.
+
+Cheers!
 
 
 

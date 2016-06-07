@@ -15,48 +15,25 @@
 <body>
 
 
-<div id="selectedPerson"></div>
-<input id="btn"type="button" value="BTNADD"></input>
+<div id="parent">
 
-<table id="customers">
-
-	<tr>
-		<td>John</td>	
-		<td>Doe</td>		
-	</tr>
-	<tr>
-		<td>Srini</td>	
-		<td>vas</td>		
-	</tr>
-	<tr>
-		<td>Viswanath</td>	
-		<td>Palghat</td>		
-	</tr>
+<div>srin</div>
+<div>srinvas</div>
+<div>srinpv</div>
 
 
-</table>
-
-
-
+</div>
 
 <script>
 
-//we added id of customers to the table...which is the parent..
-/////we can come back in and find that id... 
-///find id and on that click .... remember have to add second para..
-//on a click for what...'td' which is a descendent...
 $(document).ready(function(){
 
-	$("#btn").on('click', function(){
+	$('p:nth-child(1)').css({
 
-		$('#customers').append('<tr><td>pV</td><td>IISS</td></tr>')
-
-	})
-
-	$('#customers').on('click', 'td',function(){
-		console.log($(this).text())  //or html()
-
-	})
+		'backgroundColor' :'red',
+		'height' :'30px',
+		'width' :'50px'
+})
 
 })
 
